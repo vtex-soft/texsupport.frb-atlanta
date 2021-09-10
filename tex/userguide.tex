@@ -1,0 +1,195 @@
+% Options: [nometapage]
+\documentclass{ltxdoc}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage{multicol}
+\usepackage[tt=false, sf=false, type1=true]{libertine}
+\usepackage[varqu,scaled=.88]{zi4}
+\usepackage[libertine]{newtxmath}
+\usepackage[tableposition=top]{caption}
+\usepackage{fancyvrb}
+\usepackage{hypdoc}
+\usepackage{enumitem}
+\setlist%
+{%
+ topsep=0pt,%
+ labelsep=6pt,
+ noitemsep,%
+ leftmargin=*
+}
+\setlist[description]{font=\normalfont\sffamily\bfseries}
+\setlength\parskip{10pt}
+
+\begin{document}
+
+\title{\texttt{frbaart }\LaTeX\ class for the \textit{Policy Hub Papers} publications}
+\author{Deimantas Galčius, Linas Stonys}
+\maketitle
+
+\abstract{This package provides a class for typesetting Policy Hub Papers publications of the
+Federal Reserved Bank of Atlanta.}
+
+\tableofcontents
+
+\section{Introduction}
+
+The \texttt{frbaart} document class is based on the \texttt{article} class.
+The main text font is set to IBM Plex Sans and the math font is to IBM Plex Sans
+where it is appropriate.
+The first page of the template is \textit{Instructions for Policy Hub},
+which is suppressed in final document.
+The second page is \textit{metadata} information provided
+by author(s). The page is suppressed in final document as well.
+
+\section{Options}
+
+\begin{description}
+\item[final] - do not print the \textit{Instructions for Policy Hub} page and
+  the \textit{metadata} page.
+\item[draft] - the opposite of ``final'' option. Prints \textit{Instructions for Policy Hub} page
+  and \textit{metadata} page. \textit{Enabled by default.}
+\end{description}
+
+\section{Instructions for Policy Hub}
+
+\textit{Instructions for Policy Hub} page contains questions
+that author(s) are kindly asked to answer.
+The page is surpressed in final document.
+
+\section{Metadata}
+
+Metadata consists of paper \textit{title}, \textit{subtitle} if available,  \textit{authors}
+with their \textit{affilitions}, \textit{abstract} or summary,
+\textit{key findings}, \textit{center affiliation}, \textit{keywords} and \textit{doi number}.
+
+
+\DescribeMacro{\title}%
+Set title of the paper  in |\title{}| command before |\begin{document}|.
+
+\DescribeMacro{\subtitle}
+Set subtitle (if any) within |\subtitle{}| command.
+
+\DescribeEnv{abstract}
+Use  |\begin{abstract}...\end{abstract}| environment
+instead of  the |\abstract{}| macro to set an abstract or a summary.
+
+\DescribeMacro{\author}
+Name(s), affiliations, and email(s) of the author should set in appropriate
+macros within |author| command.
+The following coding should be applied for each author separately:
+\begin{Verbatim}
+\author{%
+  \person{Firstname Surname},
+  \affiliation{Affiliation}
+  \email{surname1@email.com}% not printed
+}
+\end{Verbatim}
+
+Use comma as a separator for multiple affiliations or email addresses.
+
+\DescribeEnv{findings}
+The |findings| environment is defined as an unnumbered list,
+where findings is set as list items.
+
+\DescribeMacro{\affil}
+This command is meant for Center Affiliation.
+
+\DescribeMacro{\keywords}
+ The command
+ \cs{keywords}\marg{keyword1, keyword2,\ldots} sets keywords for the
+ paper. Use comma as a keyword separator. The command \cs{keywords} can have  one optional argument which you can use,  e.g, for  JEL classification codes:
+ \begin{Verbatim}
+   \keywords[JEL Classification]{Code1, Code2, ...}
+\end{Verbatim}
+
+\DescribeMacro{\doi}
+\DescribeMacro{\articlenumber}
+The |doi| and the paper |number| should be set in \cs{doi} and \cs{articlenumber}
+commands respectively before \cs{maketitle} command.
+
+\DescribeEnv{aboutauthor}
+The authors' biographies should be set in the |aboutauthors| environment.
+The command |\person| will set the name in bold font.
+
+\DescribeEnv{acks}
+
+Acknowledgments should be set in |acks| environment.
+
+\section{Mathematics}
+
+The template loads |amsmath| \cite{amsmath} by default.
+You are encourage to use the features provided by this package.
+
+\section{Tables}
+
+Avoid using vertical rules for tables as per the |booktabs| \cite{booktabs} package recomendations.
+The package is loaded by default.
+Table headers are set with |\thead| command, which gives a slightly bigger font size.
+Table notes can be put after |tabular| environment using \cs{note} command. Optional argument to
+\cs{note} will change the default preceeding text (\textit{Note:}).
+Basic table structure is as follows (\textit{see sample.tex file for more elaborated examples}):
+\definecolor{verbc}{gray}{.6}
+\begin{Verbatim}[commandchars=+\[\]]
+  \begin{table}
+    \caption{...}\label{...}
+    \begin{tabular}{+color[verbc][<column-specs>]}
+      \hline
+      +textbf[\thead]{ headerA } & +textbf[\thead]{ headerB } ... \\
+      \hline
+             row2 c1   & row2 c2            ... \\
+             row3 c1   & row3 c2            ... \\
+             .......   & .......            ....\\
+      \hline
+    \end{tabular}
+  \end{table}
+\end{Verbatim}
+
+\section{Figures}
+
+Figure caption should be before the figure body, therefore \cs{caption} command should preceed
+\cs{includegraphics} command. Notes to figure should be set in \cs{note}
+  after the figure body, i.e., after \cs{includegraphics} command.
+\begin{Verbatim}
+  \begin{figure}
+    \caption{...}
+    \includegraphics{...}
+    \note[Source]{...}
+  \end{figure}
+\end{Verbatim}
+
+
+\section{Theorems and alike}
+You can use either |amsthm| \cite{amsthm} package or |ntheorem| \cite{ntheorem} package for setting theorems. 
+
+\section{Citing references}%
+\label{sec:citations}
+
+The template uses |natbib| \cite{natbib} package to format references. 
+The citations are set in the author-year format using
+\textit{American Economic Association} citation style.
+For bibtex users the bibtex style file (\texttt{aea-edt.bst}) is supplied with this bundle:
+\begin{Verbatim}[commandchars=+\[\]]
+  \bibliographystyle{aea-edt} [+color[verbc]% load bibstyle aea-edt.bst ]
+  \bibliography{bibdata}      [+color[verbc]% load +textbf[your] bibdata.bib database file]
+\end{Verbatim}
+
+How to use |bibtex| one can refer to \url{http://www.bibtex.org/Using/} or
+\url{https://latex-tutorial.com/tutorials/bibtex/}.
+
+
+\begin{thebibliography}{00}
+\bibitem{amsmath} AMS, LaTeX project, \textit{User’s Guide for the amsmath Package}, v. 2.1,
+   \url{https://ctan.org/pkg/amsmath}.
+
+\bibitem{booktabs} Simon Fear, \textit{Publication quality tables in LATEX}, January 2020,
+  \url{https://ctan.org/pkg/booktabs}.
+
+\bibitem{amsthm} AMS, \textit{Using the amsthm Package}, v. 2.20.3,  \url{https://ctan.org/pkg/amsthm}
+
+\bibitem{ntheorem} Wolfgang May, Andreas Schedler, \textit{An Extension of the LATEX-Theorem Evironment}, v. 1.33, \url{https://ctan.org/pkg/ntheorem}
+
+\bibitem{natbib} Patrick W. Daly, \textit{Natural Sciences Citations and References}, 2010,
+  \url{https://ctan.org/pkg/natbib}
+\end{thebibliography}
+\end{document}
+

@@ -1,0 +1,408 @@
+% Options: [nometapage,noinstructionpage,final]
+\documentclass{frbaart}
+\usepackage[leqno]{amsmath}
+\usepackage{natbib}
+\usepackage{lipsum}
+\usepackage{blindtext}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{graphicx}
+
+\usepackage[T1]{fontenc}
+\usepackage{multicol}
+\usepackage{marvosym}
+
+
+%
+% metadata
+%
+\articlenumber{0000-0}
+
+\doi{https://doi.org/10.29338/xx0000-0}
+
+
+\title{Paper Title}
+%\subtitle{Paper Subtitle}
+
+
+%
+% local definition
+%
+\def\arraystretch{1.25}
+
+
+\begin{document}
+
+
+\input{instructionspage}
+
+
+\begin{abstract}
+  Lorem ipsum dolor sit amet, consectetur adipiscing
+  elit. Pellentesque ut leo elementum, malesuada sem quis, mollis
+  neque. In fermentum nunc eget nunc gravida, quis condimentum risus
+  blandit. Cras suscipit cursus faucibus. Maecenas ex libero, pretium
+  eget libero nec, eleifend fringilla dolor. Vivamus auctor metus
+  elit. Nunc vestibulum orci sit amet lorem bibendum, non maximus quam
+  porta. Fusce non elit elit. Vivamus porta massa quis velit aliquam,
+  in eleifend sem vehicula. Etiam commodo mi semper lacus ultricies,
+  sed mollis sem consectetur. Nunc sit amet nibh ac ante suscipit
+  mattis. Proin sodales lorem eu molestie tincidunt. Pellentesque
+  habitant morbi tristique senectus et netus et malesuada fames ac
+  turpis egestas. In vehicula et nunc non auctor. Ut imperdiet
+  lobortis dolor nec tincidunt. Mauris tristique egestas augue a
+  bibendum. Aenean nec consectetur orci. Duis auctor elit ut
+  sollicitudin pretium. Donec nulla mauris, pellentesque in placerat
+  in, ullamcorper quis dolor. In vitae rhoncus ligula. Integer.
+\end{abstract}
+
+\author{
+  \person{Firstname Surname}, % full name of the author
+  \affiliation{Affiliation} 
+  \email{surname1@email.com} % not printed
+}
+
+\author{
+  \person{Firstname Surname}, % full name of the author
+  \affiliation{Affiliation}
+  \email{surname2@email.com} % not printed
+}
+
+%
+% key findings
+%
+\begin{findings}
+\item
+  \lipsum[1][1]
+\item
+  \lipsum[1][2]
+  
+\end{findings}
+
+\affil{\lipsum[1][3]}
+
+%\affil{Center for Quantitative Economic Research}
+\keywords[JEL Classification]{<Code1>, <Code2>, \ldots}
+\keywords{%
+  keyword1, keyword2, keyword3, \ldots
+}
+
+\maketitle
+
+\begin{aboutauthors}
+  \person{Firstname Surname}
+  Insert Bio Sketch.
+
+  \person{Firstname Surname}
+  Insert Bio Sketch.
+\end{aboutauthors}
+%
+% Acknowledgments:
+%
+\begin{acks}
+  The author would like to thank  insert text.
+  The views expressed here are the author’s and not necessarily those of the
+  Federal Reserve Bank of Atlanta or the Federal Reserve System.
+  Any remaining errors are the author's responsibility.
+\end{acks}
+
+%
+% TODO acks is not printed with TL2021
+%
+%\printacks
+
+\textit{Comments to the authors are welcome at
+  \textup{\email{surname1@email.com}} or
+  \textup{\email{surname2@email.com}}}.
+
+
+\mainmatter
+
+\section{Section title}
+
+\lipsum[1][1-3]
+
+\subsection{Subsection title}
+\lipsum[1]
+\footnote{\lipsum[2] }
+\lipsum[1][1]\footnote{\lipsum[3][1]}
+\lipsum[1-3]
+
+\section{Section title}
+
+\subsection{Subsection title}
+
+\lipsum[1][1-2]
+
+\subsubsection{Subsubsection title}
+
+\lipsum[2][1-2]
+
+\paragraph{Paragraph title}
+
+\lipsum[3][1-2]
+
+\subparagraph{Subparagraph title}
+
+\lipsum[4][1]\footnote{\lipsum[1] }
+\lipsum[5][1]\footnote{\lipsum[6][1] }
+\lipsum[1-3]
+
+
+\section{Math}%
+\label{sec:math}
+
+The \texttt{amsmath} package is used to set displayed mathematics
+
+\begin{equation*}
+  x^n + y^n = z^n
+\end{equation*}
+
+\begin{equation}
+  \label{eq:cdf}
+  \Pr(Z \le t) = \Phi\left(\frac{Z - \mu}{\sigma} \right),
+\end{equation}
+where $Z$ follows a $N(\mu, \sigma^2)$ distribution.
+Equations can be referenced by \texttt{$\backslash$ref}.
+When $\mu = 0$ and $\sigma = 1$, the $Z$ in equation~\ref{eq:cdf}
+becomes a standard normal variable
+
+
+Multiline equations can be presented with the \texttt{align}
+environment. For example,
+\begin{align}
+  g_{\mu}(\phi) = 0,\\
+  g_{\mu}(X) = 1.
+\end{align}
+
+
+An equation that is not referenced should not be labeled. The starred
+version of the \texttt{equation} and \texttt{align} are for this purpose.
+
+
+\section{Lists: enumerate, itemize, desciption}
+
+\begin{enumerate}
+\item first item.
+  \lipsum[3][1-4]
+\item second item
+\item third item
+\end{enumerate}
+
+\begin{itemize}
+\item first
+    \lipsum[3][1-4]
+\item second item
+\item third item
+\end{itemize}
+
+
+\begin{description}
+\item[first] item
+\item[second] item
+\item[third]
+  \lipsum[3][1-4]
+\end{description}
+
+\subsection{Subsection}
+
+\lipsum[1][1-3]
+
+\begin{enumerate}
+  \item first    \lipsum[3][1-4]
+  \item second item
+  \item third item
+\end{enumerate}
+
+\lipsum[1][1-3]
+  
+\section{Tables}%
+\label{sec:tabs}
+
+\begin{table}[H]
+  \caption{Short title}
+    \label{tab:realdata}
+    %\centering
+    \begin{tabular*}{26pc}{llrrrr}
+% row 1
+    \hline
+      \multicolumn{1}{l}{\thead{ Tempus }}
+    & \multicolumn{1}{l}{\thead{ Parametri }}
+    & \multicolumn{2}{c}{\thead{ Duo-pars modum }}
+    & \multicolumn{2}{c}{\thead{ Modum marginalis }} \\
+    \hline
+% row 2
+      &
+      & EST
+      & SE
+      & EST
+      & SE
+      \\
+% row 3
+      Aestas
+      & $\lambda_1$
+      & 2.841
+      & 0.459
+      & 1.090
+      & 0.280
+      \\
+      & $\lambda_0$
+      & 0.179
+      & 0.014
+      & 0.158
+      & 0.015
+      \\
+      & $\sigma$
+      & 1.335
+      & 0.106
+      & 0.999
+      & 0.104
+      \\
+      & $\sigma_\epsilon (\times 10^{-2})$
+      & 1.854
+      & 0.087
+      & 1.879
+      & 0.078
+      \\
+      Hiems
+      & $\lambda_1$
+      & 6.225
+      & 0.825
+      & 4.720
+      & 0.711
+      \\
+      & $\lambda_0$
+      & 0.118
+      & 0.010
+      & 0.114
+      & 0.009
+      \\
+      & $\sigma$
+      & 1.506
+      & 0.095
+      & 1.454
+      & 0.089
+      \\
+      & $\sigma_\epsilon (\times 10^{-2})$
+      & 0.908
+      & 0.036
+      & 0.934
+      & 0.043 \\
+    \hline
+    \end{tabular*}
+    \par
+    \note{\lipsum[9][1] }
+    \note[Source]{\lipsum[9][2] }
+\end{table}
+
+
+\begin{table}[H]
+  \caption{ Long title. \lipsum[1][1-4]}%
+    \begin{tabularx}{\textwidth}{XXrr>{\extracolsep{1pc}}rr}
+% row1
+    \hline
+      \multicolumn{1}{l}{\thead{ Tempus }}
+    & \multicolumn{1}{l}{\thead{ Parametri }}
+    & \multicolumn{2}{c}{\thead{ Duo-pars modum }}
+    & \multicolumn{2}{c}{\thead{ Modum marginalis }} \\
+    \hline
+% row 2
+      &
+      & EST
+      & SE
+      & EST
+      & SE
+      \\
+% row3
+      Aestas
+      & $\lambda_1$
+      & 2.841
+      & 0.459
+      & 1.090
+      & 0.280
+      \\
+      & $\lambda_0$
+      & 0.179
+      & 0.014
+      & 0.158
+      & 0.015
+      \\
+      & $\sigma$
+      & 1.335
+      & 0.106
+      & 0.999
+      & 0.104
+      \\
+      & $\sigma_\epsilon (\times 10^{-2})$
+      & 1.854
+      & 0.087
+      & 1.879
+      & 0.078
+      \\
+      Hiems
+      & $\lambda_1$
+      & 6.225
+      & 0.825
+      & 4.720
+      & 0.711
+      \\
+      & $\lambda_0$
+      & 0.118
+      & 0.010
+      & 0.114
+      & 0.009
+      \\
+      & $\sigma$
+      & 1.506
+      & 0.095
+      & 1.454
+      & 0.089
+      \\
+      & $\sigma_\epsilon (\times 10^{-2})$
+      & 0.908
+      & 0.036
+      & 0.934
+      & 0.043
+      \\
+      \hline
+  \end{tabularx}
+  \note{\lipsum[9][1] }
+  \note[Source]{\lipsum[9][2] }
+\end{table}
+
+\section{Figures}%
+\label{sec:figs}
+
+Vector graphics do not lose clarity when being scaled. Make your
+figure in pdf format when you first generate it and keep in mind its
+sizes in the article to avoid over-scaling. Do not simply convert a
+jpeg or png image to a pdf.
+\begin{figure}[H]
+  \caption{Short title}
+  \includegraphics{dice}
+  \note{\lipsum[9][1] }
+  \note[Source]{\lipsum[9][2] }
+\end{figure}
+
+\begin{figure}[H]
+  \caption{ Long title. \lipsum[1][1-4]}%
+  \includegraphics[width=\textwidth]{dice}
+  \note{\lipsum[9][1] }
+  \note[Source]{\lipsum[9][2] }
+\end{figure}
+
+\section{Citing references}
+
+\cite{carlin1992monte}
+\cite{carlin1992monte,gamado2017estimation}
+\nocite{*}
+
+\bibliographystyle{aea-edt}
+\bibliography{biblio}
+
+\end{document}
+ 
+
