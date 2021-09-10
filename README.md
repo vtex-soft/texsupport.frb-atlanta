@@ -18,10 +18,10 @@ Tex:
     or [here](https://www.latex-tutorial.com/tutorials/bibtex/).
 
 MS Word:
--   "3. FRBA Policy Hub template_VTeX_v2.docx" - sample file 
--   "3. FRBA Policy Hub template_VTeX_v2.pdf"  - sample file pdf
--   word_sample.docx - template 
--   word_sample.pdf  - template 
+-   "3. FRBA Policy Hub template_VTeX_v2.docx" - sample file;
+-   "3. FRBA Policy Hub template_VTeX_v2.pdf"  - sample file pdf;
+-   word_sample.docx - template;
+-   word_sample.pdf  - template. 
 
 
 ## Bug reports
